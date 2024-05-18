@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos</title>
+</head>
+<body>
+    <h1>My To do list</h1>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th></th>
+        </tr>
+        {% for todo in todos %}
+        <tr>
+            <td>{{todo.title}}</td>
+            <td><a href="{% url 'todo' todo.id %}">View</a></td>
+        </tr>
+        {% empty %}
+        <h2>List is empty</h2>
+        {% endfor %}
+    </table>
+</body>
+</html>
