@@ -5,16 +5,37 @@
     <title>Todos</title>
 </head>
 <body>
+    {% if request.user.is_authenticated %}
+        <p>{{request.user}}</p>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <!-- <a href="{% url 'login' %}">Login</a> -->
+        <form method="get" action="{% url 'login' %}">
+            <button type="submit">Login</button>
+        </form>
+    {% endif %}
+    <hr>
+
     <h1>My To do list</h1>
+    <p>
+        <a href="{% url 'create-todo' %}">Add Todo</a>
+    </p>
     <table>
         <tr>
             <th>Item</th>
+            <th></th>
+            <th></th>
             <th></th>
         </tr>
         {% for todo in todos %}
         <tr>
             <td>{{todo.title}}</td>
             <td><a href="{% url 'todo' todo.id %}">View</a></td>
+            <td><a href="{% url 'update-todo' todo.id %}">Edit</a></td>
+            <td><a href="{% url 'delete-todo' todo.id %}">Delete</a></td>
         </tr>
         {% empty %}
         <h2>List is empty</h2>

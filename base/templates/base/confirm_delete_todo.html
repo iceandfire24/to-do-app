@@ -1,0 +1,15 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Todo</title>
+</head>
+<body>
+    <a href="{% url 'todos' %}">Go back</a>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to delete this todo? "{{todo}}"</p>
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>
