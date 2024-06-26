@@ -6,6 +6,9 @@
 </head>
 <body>
     <a href="{% url 'todos' %}">Go back</a>
-    <h3>todo: {{todo}}</h3>
+    <h1>Todo Details</h1>
+    <h3>Title: {{todo}}</h3>
+    <p>Description: {{todo.description}}</p>
+    <p>Completed: {{todo.completed}}</p>
 </body>
 </html>

@@ -2,16 +2,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign Up</title>
 </head>
 <body>
-    <h1>Login</h1>
+    <h1>Sign Up</h1>
     <form method="POST">
         {% csrf_token %}
         {{form}}
-        <input type="submit" value="Login">
+        <input type="submit" value="Sign Up">
     </form>
-    <p>Don't have an account? Register <a href="{% url 'signup' %}">here</a></p>
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
     
 </body>
 </html>

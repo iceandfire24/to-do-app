@@ -20,6 +20,10 @@
     <hr>
 
     <h1>My To do list</h1>
+    <form method="GET">
+        <input type="text" name="search-area" size="50" value="{{search_input}}">
+        <input type="submit" value="Search">
+    </form>
     <p>
         <a href="{% url 'create-todo' %}">Add Todo</a>
     </p>
